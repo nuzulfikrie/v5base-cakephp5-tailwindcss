@@ -1,0 +1,25 @@
+{
+    "name": "v5base",
+    "version": "1.0.0",
+    "description": "![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master) [![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app) [![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "build:css": "postcss webroot/css/tailwind.css -o webroot/css/style.css",
+        "watch:css": "nodemon -e css -x 'npm run build:css'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.0.3",
+        "postcss-cli": "^11.0.0",
+        "tailwindcss": "^3.4.1"
+    },
+    "dependencies": {
+        "flowbite": "^2.2.1"
+    }
+}
