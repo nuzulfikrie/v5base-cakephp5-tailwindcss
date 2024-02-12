@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Helper;
 
+use App\Exception\InvalidParameterException;
 use Cake\View\Helper;
 use Cake\View\View;
 
@@ -33,12 +34,38 @@ class IconHelper extends Helper
         </svg>";
     }
 
-    
+    public function dashboardSvg()
+    {
+        return "<svg class=\"w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white\" fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\">
+            <path d=\"M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z\"></path>
+            <path d=\"M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z\"></path>
+        </svg>";
+    }
+
+    public function icon(string $iconName)
+    {
+
+        if (!$iconName) {
+            throw new InvalidParameterException(__('Icon name is required'));
+        }
+
+        if ($iconName === 'dashboard') {
+            return $this->dashboardSvg();
+        }
+
+        if ($iconName === 'CheckCircle') {
+            return $this->checkCircle();
+        }
+
+        if ($iconName === 'NoCircle') {
+            return $this->checkNoCircle();
+        }
+    }
 
     public function checkAndCross(bool $flag, array $options)
     {
 
-        if ($flag && $options['circle'] === false) {
+        if ($flag === true && $options['circle'] === false) {
             return $this->checkNoCircle();
         }
     }
